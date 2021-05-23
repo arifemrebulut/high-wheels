@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3130097865566850821
+--- !u!1 &4680367011166858909
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2322599292212237759}
-  - component: {fileID: 1699084481210440218}
-  - component: {fileID: 3490477850308226768}
-  - component: {fileID: 693083599}
-  - component: {fileID: 7005205410334162785}
+  - component: {fileID: 4680367011166499517}
+  - component: {fileID: 4680367011169923741}
+  - component: {fileID: 4680367011168792669}
   m_Layer: 0
-  m_Name: SuspensionPickUp
-  m_TagString: SuspensionPickUp
+  m_Name: DiamondModel
+  m_TagString: DiamondPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2322599292212237759
+--- !u!4 &4680367011166499517
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130097865566850821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 4680367011166858909}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.5, y: 12.5, z: 12.5}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7804792069778202915}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1699084481210440218
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!33 &4680367011169923741
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130097865566850821}
-  m_Mesh: {fileID: -6258665705841993699, guid: f033004fe4e691844a9a75ba77d1c394, type: 3}
---- !u!23 &3490477850308226768
+  m_GameObject: {fileID: 4680367011166858909}
+  m_Mesh: {fileID: 4300000, guid: 6217dd83a11a7df46b82193c138a8ce2, type: 3}
+--- !u!23 &4680367011168792669
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130097865566850821}
+  m_GameObject: {fileID: 4680367011166858909}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,10 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5989691921684679628, guid: f033004fe4e691844a9a75ba77d1c394, type: 3}
-  - {fileID: -1206677032643402401, guid: f033004fe4e691844a9a75ba77d1c394, type: 3}
-  - {fileID: 985663885801279989, guid: f033004fe4e691844a9a75ba77d1c394, type: 3}
-  - {fileID: 7992647956271978336, guid: f033004fe4e691844a9a75ba77d1c394, type: 3}
+  - {fileID: 2100000, guid: d3fdd53a2b5dd904fad8d824266a4cad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,28 +81,61 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &693083599
+--- !u!1 &7804792069778202914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7804792069778202915}
+  - component: {fileID: 7804792069778202912}
+  - component: {fileID: 2310765406333786893}
+  m_Layer: 0
+  m_Name: DiamondPickUp
+  m_TagString: DiamondPickUp
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7804792069778202915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804792069778202914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.888, z: -5.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4680367011166499517}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7804792069778202912
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130097865566850821}
+  m_GameObject: {fileID: 7804792069778202914}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.014786219, y: 0.062554345, z: 0.014890796}
-  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
---- !u!114 &7005205410334162785
+  m_Size: {x: 0.54, y: 0.55, z: 0.54}
+  m_Center: {x: 0, y: -0.15, z: 0}
+--- !u!114 &2310765406333786893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130097865566850821}
+  m_GameObject: {fileID: 7804792069778202914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd822841eda0c3f4a8fbd02e8f32d077, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c18bd04cb479ef4999053df8781d657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

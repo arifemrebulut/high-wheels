@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class EventBroker : MonoBehaviour
+public class EventBroker
 {
-    // Start is called before the first frame update
-    void Start()
+    public static Action OnPickUpSuspension;
+    public static Action OnPickUpDiamond;
+    public static Action OnHitToBlock;
+
+    public static void CallOnPickUpSuspension()
     {
-        
+        OnPickUpSuspension?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void CallOnPickUpDiamond()
     {
-        
+        OnPickUpDiamond?.Invoke();
+    }
+
+    public static void CallOnHitToBlock()
+    {
+        OnHitToBlock?.Invoke();
     }
 }
