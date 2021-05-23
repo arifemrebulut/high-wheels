@@ -3,48 +3,35 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public static Action<float> OnTouchDragEvent;
+    [SerializeField] private float deltaXMultiplier;
 
-    private float xMovementFactor;
     private float touchStartXPosition;
+    public float deltaX { get; private set; }
 
-    private bool isTouching;
+    public static Action<float> OnTouchMovedEvent;
+    public static Action OnTouchBeganEvent;
 
     private void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            OnTouchStart();
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                touchStartXPosition = Input.GetTouch(0).position.x;
+            }
+
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                deltaX = (Input.GetTouch(0).position.x - touchStartXPosition) * deltaXMultiplier;
+                touchStartXPosition = Input.GetTouch(0).position.x;
+
+                Debug.Log(deltaX);
+            }
+
+            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                deltaX = 0f;
+            }
         }
-
-        if (isTouching)
-        {
-            OnTouchDrag();
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            OnTouchEnd();
-        }
-    }
-
-    public void OnTouchStart()
-    {
-        isTouching = true;
-
-        touchStartXPosition = Input.GetTouch(0).position.x;
-    }
-
-    public void OnTouchDrag()
-    {
-        xMovementFactor = Input.GetTouch(0).position.x - touchStartXPosition;
-
-        OnTouchDragEvent(xMovementFactor);
-    }
-
-    public void OnTouchEnd()
-    {
-        isTouching = false;
-        xMovementFactor = 0f;
     }
 }
