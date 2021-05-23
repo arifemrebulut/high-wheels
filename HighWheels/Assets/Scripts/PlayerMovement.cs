@@ -31,26 +31,17 @@ public class PlayerMovement : MonoBehaviour
         }       
     }
 
-    #region Forward Movement Methods
-
     private void ForwardMovement()
     {
         transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
     }
 
-    #endregion
-
-
-    #region Swerve Movement Methods
-
     private void SwerveMovement()
     {
         float desiredXPosition = Mathf.Clamp(playerInput.deltaX, -maxXBounds, maxXBounds);
 
-        targetPosition = new Vector3(transform.position.x + desiredXPosition, transform.position.y, transform.position.z);
+        targetPosition = new Vector3(Mathf.Clamp(transform.position.x + desiredXPosition, -maxXBounds, maxXBounds), transform.position.y, transform.position.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed);
     }
-
-    #endregion
 }
