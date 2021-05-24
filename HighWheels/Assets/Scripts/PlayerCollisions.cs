@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        ICollideable collideable = collision.gameObject.GetComponent<ICollideable>();
+        ICollideable collideable = other.gameObject.GetComponent<ICollideable>();
 
         if (collideable != null)
         {

@@ -61,17 +61,24 @@ public class CarSuspensions : MonoBehaviour
 
     private void LoseSuspension()
     {
-        if (suspensionIndex == 1)
+        if (suspensionIndex != 0)
         {
-            yValue = carBodyYValue + firstSuspensionOffset;
+            if (suspensionIndex == 1)
+            {
+                yValue = carBodyYValue + firstSuspensionOffset;
+            }
+
+            AdjustCarBodyYPosition(-yValue);
+
+            suspensionIndex--;
+
+            suspensions[suspensionIndex].gameObject.SetActive(false);
+            yValue = carBodyYValue;
         }
-
-        AdjustCarBodyYPosition(-yValue);
-
-        suspensionIndex--;
-
-        suspensions[suspensionIndex].gameObject.SetActive(false);
-        yValue = carBodyYValue;
+        else
+        {
+            Debug.Log("Game Over");
+        }
     }
 
     private void AdjustCarBodyYPosition(float _yValue)
