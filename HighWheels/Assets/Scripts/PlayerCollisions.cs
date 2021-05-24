@@ -6,7 +6,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         ICollideable collideable = other.gameObject.GetComponent<ICollideable>();
 
-        if (collideable != null)
+        if (collideable != null && other.gameObject.CompareTag("SuspensionPickUp"))
         {
             collideable.ExicuteCollisionActions();
         }

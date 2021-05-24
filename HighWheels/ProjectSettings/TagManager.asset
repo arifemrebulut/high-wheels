@@ -7,6 +7,8 @@ TagManager:
   - SuspensionPickUp
   - DiamondPickUp
   - Block
+  - Suspension
+  - CarBody
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Block
   - 
   - 
   - 

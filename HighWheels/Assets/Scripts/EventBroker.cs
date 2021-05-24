@@ -4,7 +4,7 @@ public class EventBroker
 {
     public static Action OnPickUpSuspension;
     public static Action OnPickUpDiamond;
-    public static Action OnHitToBlock;
+    public static Action<int> OnHitToBlock;
 
     public static void CallOnPickUpSuspension()
     {
@@ -16,8 +16,8 @@ public class EventBroker
         OnPickUpDiamond?.Invoke();
     }
 
-    public static void CallOnHitToBlock()
+    public static void CallOnHitToBlock(int _blockHeight)
     {
-        OnHitToBlock?.Invoke();
+        OnHitToBlock?.Invoke(_blockHeight);
     }
 }
