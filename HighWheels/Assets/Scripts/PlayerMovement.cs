@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    private bool canMove;
+    private bool canMove = false;
 
     PlayerInput playerInput;
 
