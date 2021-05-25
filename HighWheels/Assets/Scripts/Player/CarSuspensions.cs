@@ -45,7 +45,7 @@ public class CarSuspensions : MonoBehaviour
     {
         if (suspensions.Count == 0)
         {
-            carBody.transform.DOMoveY((carBody.transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime);
+            carBody.transform.DOMoveY((carBody.transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime).SetEase(Ease.OutBack);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -55,7 +55,7 @@ public class CarSuspensions : MonoBehaviour
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime);
+            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime).SetEase(Ease.OutBack);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -81,11 +81,11 @@ public class CarSuspensions : MonoBehaviour
 
         if (suspensions.Count > 1)
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime);
+            carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime).SetEase(Ease.OutBack);   
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime);
+            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime).SetEase(Ease.OutBack);
         }
 
         foreach (var suspension in suspensions)
