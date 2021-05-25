@@ -24,8 +24,6 @@ public class PlayerInput : MonoBehaviour
             {
                 deltaX = (Input.GetTouch(0).position.x - touchStartXPosition) * deltaXMultiplier;
                 touchStartXPosition = Input.GetTouch(0).position.x;
-
-                Debug.Log(deltaX);
             }
 
             if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Ended)

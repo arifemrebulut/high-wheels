@@ -43,21 +43,19 @@ public class CarSuspensions : MonoBehaviour
 
     private void GainSuspension()
     {
-        // Adjust Y position value of carBody and suspensions on the car
-
         if (suspensions.Count == 0)
         {
-            carBody.transform.DOMoveY((transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime).SetEase(Ease.OutBack);
+            carBody.transform.DOMoveY((carBody.transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
-            newSuspension.AddComponent<SuspensionRayCheck>();
-
             suspensions.Enqueue(newSuspension);
+
+            AddComponentToFistSuspension();
         }
         else
         {
-            carBody.transform.position += new Vector3(0f, yIncreaseAmount, 0f);
+            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -69,27 +67,44 @@ public class CarSuspensions : MonoBehaviour
 
     private void LoseSuspension(int _loseAmount)
     {
+
         for (int i = 0; i < _loseAmount; i++)
         {
             GameObject suspensionToDelete = suspensions.Peek();
 
             suspensions.Dequeue();
 
-            Destroy(suspensionToDelete);           
+            Destroy(suspensionToDelete);          
+        }
 
-            if (suspensions.Count > 0)
-            {
-                carBody.transform.position -= new Vector3(0f, yIncreaseAmount, 0f);
-            }
-            else
-            {
-                carBody.transform.position -= new Vector3(0f, yIncreaseAmount + carBodyOffset, 0f);
-            }
+        float yDecreaseAmount = yIncreaseAmount * _loseAmount;
 
-            foreach (var suspension in suspensions)
-            {
-                suspension.transform.localPosition -= new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
-            }
+        if (suspensions.Count > 1)
+        {
+            carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime);
+        }
+        else
+        {
+            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime);
+        }
+
+        foreach (var suspension in suspensions)
+        {
+
+            suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
+                .OnComplete(AddComponentToFistSuspension);
         }
     }
+
+    private void AddComponentToFistSuspension()
+    {
+        if (suspensions.Count > 0)
+        {
+            suspensions.Peek().AddComponent<SuspensionRayCheck>();
+        }
+        else
+        {
+            Debug.Log("Queue is empty!");
+        }
+    }   
 }
