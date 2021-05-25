@@ -7,6 +7,7 @@ public class EventBroker
     public static Action<int> OnHitToBlock;
 
     public static Action OnGameOver;
+    public static Action OnEndGame;
 
     public static void CallOnPickUpSuspension()
     {
@@ -26,5 +27,10 @@ public class EventBroker
     public static void CallOnGameOver()
     {
         OnGameOver?.Invoke();
+    }
+
+    public static void CallOnEndGame()
+    {
+        OnEndGame?.Invoke();
     }
 }

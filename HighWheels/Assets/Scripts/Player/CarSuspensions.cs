@@ -1,16 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class CarSuspensions : MonoBehaviour
 {
-    [SerializeField] private GameObject suspensionPrefab;
-    [SerializeField] private GameObject carBody;
+    [Header("Suspension Animation Durations")]
+    [SerializeField] private float gainSuspensionTime;
+    [SerializeField] private float loseSuspensionTime;
+    
+    [Space]
     [SerializeField] private float carBodyOffset;
+    [SerializeField] float yIncreaseAmount;
+
+    [SerializeField] private GameObject suspensionPrefab;
+    [SerializeField] private GameObject carBody;  
     [SerializeField] private Transform suspensionsParent;
     [SerializeField] private Transform wheelsParent;
-
-    [SerializeField] float yIncreaseAmount;
 
     private Queue<GameObject> suspensions;
 
@@ -41,7 +47,7 @@ public class CarSuspensions : MonoBehaviour
 
         if (suspensions.Count == 0)
         {
-            carBody.transform.position += new Vector3(0f, yIncreaseAmount + carBodyOffset, 0f);
+            carBody.transform.DOMoveY((transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime).SetEase(Ease.OutBack);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
