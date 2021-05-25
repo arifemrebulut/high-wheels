@@ -1,2 +1,2 @@
 # high-wheels
-Hyper-Casual game prototype for JuniorPogo
+3D Hyper-Casual game prototype
