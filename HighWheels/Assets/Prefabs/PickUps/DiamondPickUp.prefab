@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c18bd04cb479ef4999053df8781d657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondPickUpParticle: {fileID: 4443734916114136113, guid: e10b28c0568718d41b8c6c6143f062c3, type: 3}
 --- !u!1001 &8881219884541215905
 PrefabInstance:
   m_ObjectHideFlags: 0
