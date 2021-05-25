@@ -14,6 +14,8 @@ public class DiamondPickUp : MonoBehaviour, ICollideable
 
     private void PlayPartcleEffects()
     {
-        Instantiate(diamondPickUpParticle, transform.position, Quaternion.identity);
+        GameObject particleEffect = Instantiate(diamondPickUpParticle, transform.position, Quaternion.identity);
+
+        Destroy(particleEffect, 2f);
     }
 }
