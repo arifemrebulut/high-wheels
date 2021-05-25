@@ -6,6 +6,7 @@ public class CarSuspensions : MonoBehaviour
 {
     [SerializeField] private GameObject suspensionPrefab;
     [SerializeField] private GameObject carBody;
+    [SerializeField] private float carBodyOffset;
     [SerializeField] private Transform suspensionsParent;
     [SerializeField] private Transform wheelsParent;
 
@@ -40,7 +41,7 @@ public class CarSuspensions : MonoBehaviour
 
         if (suspensions.Count == 0)
         {
-            carBody.transform.position += new Vector3(0f, yIncreaseAmount + 0.14f, 0f);
+            carBody.transform.position += new Vector3(0f, yIncreaseAmount + carBodyOffset, 0f);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -68,13 +69,20 @@ public class CarSuspensions : MonoBehaviour
 
             suspensions.Dequeue();
 
-            Destroy(suspensionToDelete);
+            Destroy(suspensionToDelete);           
 
-            wheelsParent.transform.position = suspensions.Peek().transform.position - new Vector3(0f, 0.26f, 0f);
-
-            if (suspensions.Count == 0)
+            if (suspensions.Count > 0)
             {
-                wheelsParent.transform.position = Vector3.zero;
+                carBody.transform.position -= new Vector3(0f, yIncreaseAmount, 0f);
+            }
+            else
+            {
+                carBody.transform.position -= new Vector3(0f, yIncreaseAmount + carBodyOffset, 0f);
+            }
+
+            foreach (var suspension in suspensions)
+            {
+                suspension.transform.localPosition -= new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
             }
         }
     }

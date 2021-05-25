@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5378603619669532505}
   - component: {fileID: 7872384745187355539}
   m_Layer: 0
-  m_Name: FrontRightWheel
+  m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8520995519604394566}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.078, y: -0.04, z: 0.158}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3991129622460723508}
   m_Father: {fileID: 0}
