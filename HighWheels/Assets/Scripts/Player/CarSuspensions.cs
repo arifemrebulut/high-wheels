@@ -69,7 +69,7 @@ public class CarSuspensions : MonoBehaviour
     private void LoseSuspension(int _loseAmount)
     {
 
-        if (suspensions.Count - _loseAmount <= 0)
+        if (suspensions.Count - _loseAmount < 0)
         {
             EventBroker.CallOnGameOver();
         }
