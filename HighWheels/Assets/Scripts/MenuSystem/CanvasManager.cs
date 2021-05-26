@@ -25,8 +25,6 @@ public class CanvasManager : MonoBehaviour
 
         menuControllerList.ForEach(x => x.gameObject.SetActive(false));
 
-        menuControllerList.ForEach(x => Debug.Log(x.name));
-
         SwitchMenu(MenuType.MainMenu);
     }
 

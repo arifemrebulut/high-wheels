@@ -16,12 +16,12 @@ public class CameraSwitcher : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBroker.OnEndGame += SwitchCamera;
+        EventBroker.OnScoreCountPoint += SwitchCamera;
     }
 
     private void OnDisable()
     {
-        EventBroker.OnEndGame -= SwitchCamera;   
+        EventBroker.OnScoreCountPoint -= SwitchCamera;   
     }
 
     #endregion
@@ -30,7 +30,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (onPlaying)
         {
-            animator.Play("OnEndGame");
+            animator.Play("OnScoreCountScene");
         }
     }
 }

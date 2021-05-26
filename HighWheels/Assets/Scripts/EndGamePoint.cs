@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class EndGamePoint : MonoBehaviour
 {
-    private void OnEnable()
+    private void OnTriggerEnter(Collider other)
     {
-        EventBroker.CallOnEndGame();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            EventBroker.CallOnEndGamePoint();
+        }
     }
 }

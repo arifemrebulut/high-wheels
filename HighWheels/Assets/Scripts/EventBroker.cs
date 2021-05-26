@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class EventBroker
 {
@@ -8,7 +9,8 @@ public class EventBroker
 
     public static Action OnGameWin;
     public static Action OnGameOver;
-    public static Action OnEndGame;
+    public static Action OnEndGamePoint;
+    public static Action OnScoreCountPoint;
 
     public static void CallOnPickUpSuspension()
     {
@@ -35,8 +37,14 @@ public class EventBroker
         OnGameOver?.Invoke();
     }
 
-    public static void CallOnEndGame()
+    public static void CallOnEndGamePoint()
     {
-        OnEndGame?.Invoke();
+        OnEndGamePoint?.Invoke();
+    }
+
+    public static void CallOnScoreCountPoint()
+    {
+        Debug.Log("OnScoreCountPoint");
+        OnScoreCountPoint?.Invoke();
     }
 }

@@ -12,6 +12,20 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerInput playerInput;
 
+    #region Subscribe and Unsubscribe to player movement events
+
+    private void OnEnable()
+    {
+        EventBroker.OnEndGamePoint += StopPlayerMovementOnEndGame; ;
+    }
+
+    private void OnDisable()
+    {
+        EventBroker.OnEndGamePoint -= StopPlayerMovementOnEndGame; ;
+    }
+
+    #endregion
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -43,5 +57,13 @@ public class PlayerMovement : MonoBehaviour
         targetPosition = new Vector3(Mathf.Clamp(transform.position.x + desiredXPosition, -maxXBounds, maxXBounds), transform.position.y, transform.position.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed);
+    }
+
+    private void StopPlayerMovementOnEndGame()
+    {
+        GetComponent<Collider>().enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerCollisions>().enabled = false;
+        GetComponent<PlayerInput>().enabled = false;
     }
 }
