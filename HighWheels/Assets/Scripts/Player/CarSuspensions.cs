@@ -52,7 +52,7 @@ public class CarSuspensions : MonoBehaviour
 
             suspensions.Enqueue(newSuspension);
 
-            AddComponentToFirstSuspension();
+            AddComponentToFistSuspension();
         }
         else
         {
@@ -102,12 +102,12 @@ public class CarSuspensions : MonoBehaviour
 
                 suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
                     .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay)
-                    .OnComplete(AddComponentToFirstSuspension);
+                    .OnComplete(AddComponentToFistSuspension);
             }
         }     
     }
 
-    private void AddComponentToFirstSuspension()
+    private void AddComponentToFistSuspension()
     {
         if (suspensions.Count > 0)
         {

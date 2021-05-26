@@ -130,8 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 3
-  minXBound: -1.9
-  maxXBound: 2.2
+  maxXBounds: 2
   lerpSpeed: 0.8
 --- !u!114 &1431305892143396136
 MonoBehaviour:
@@ -161,7 +160,7 @@ MonoBehaviour:
   loseSuspensionTime: 0.8
   loseSuspensionDelay: 0.3
   carBodyOffset: 0.25
-  yIncreaseAmount: 0.5
+  yIncreaseAmount: 0.8
   suspensionPrefab: {fileID: 7574685387792737170, guid: fd8075d3d0db2ea42ad2d5b3045b2e4a, type: 3}
   carBody: {fileID: 8411275334916892296}
   suspensionsParent: {fileID: 1431305893667688305}
@@ -243,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431305893667688306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.434, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1431305892143396141}
