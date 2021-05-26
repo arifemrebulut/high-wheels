@@ -11,23 +11,31 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBroker.OnPickUpDiamond += IncreaseDiamond;
+        EventBroker.OnPickUpDiamond += TakeDiamond;
     }
 
     private void OnDisable()
     {
-        EventBroker.OnPickUpDiamond -= IncreaseDiamond;
+        EventBroker.OnPickUpDiamond -= TakeDiamond;
     }
 
     #endregion
 
-    private void IncreaseDiamond()
+    private void TakeDiamond()
     {
-        diamondCount.text = (totalDiamonds + 1).ToString();
+        totalDiamonds++;
+        diamondCount.text = totalDiamonds.ToString();
+    }
+
+    private void IncreaseDiamond(int increaseAmount)
+    {
+        totalDiamonds += increaseAmount;
+        diamondCount.text = totalDiamonds.ToString();
     }
 
     private void DecreaseDiamond(int decreaseAmount)
     {
-        diamondCount.text = (totalDiamonds - decreaseAmount).ToString();
+        totalDiamonds -= decreaseAmount;
+        diamondCount.text = totalDiamonds.ToString();
     }
 }

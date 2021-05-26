@@ -8,6 +8,7 @@ public class CarSuspensions : MonoBehaviour
     [Header("Suspension Animation Durations")]
     [SerializeField] private float gainSuspensionTime;
     [SerializeField] private float loseSuspensionTime;
+    [SerializeField] private float loseSuspensionDelay;
     
     [Space]
     [SerializeField] private float carBodyOffset;
@@ -68,32 +69,42 @@ public class CarSuspensions : MonoBehaviour
     private void LoseSuspension(int _loseAmount)
     {
 
-        for (int i = 0; i < _loseAmount; i++)
+        if (suspensions.Count - _loseAmount <= 0)
         {
-            GameObject suspensionToDelete = suspensions.Peek();
-
-            suspensions.Dequeue();
-
-            Destroy(suspensionToDelete);          
-        }
-
-        float yDecreaseAmount = yIncreaseAmount * _loseAmount;
-
-        if (suspensions.Count > 1)
-        {
-            carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime).SetEase(Ease.OutBack);   
+            EventBroker.CallOnGameOver();
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime).SetEase(Ease.OutBack);
-        }
+            for (int i = 0; i < _loseAmount; i++)
+            {
+                GameObject suspensionToDelete = suspensions.Peek();
 
-        foreach (var suspension in suspensions)
-        {
+                suspensions.Dequeue();
 
-            suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
-                .OnComplete(AddComponentToFistSuspension);
-        }
+                Destroy(suspensionToDelete);
+            }
+
+            float yDecreaseAmount = yIncreaseAmount * _loseAmount;
+
+            if (suspensions.Count > 1)
+            {
+                carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime)
+                    .SetEase(Ease.InBack).SetDelay(loseSuspensionDelay);
+            }
+            else
+            {
+                carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime)
+                    .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
+            }
+
+            foreach (var suspension in suspensions)
+            {
+
+                suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
+                    .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay)
+                    .OnComplete(AddComponentToFistSuspension);
+            }
+        }     
     }
 
     private void AddComponentToFistSuspension()
