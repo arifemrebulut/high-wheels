@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float forwardSpeed;
-    [SerializeField] private float maxXBounds;
+    [SerializeField] private float minXBound, maxXBound;
     [SerializeField] private float lerpSpeed;
 
     private Vector3 targetPosition;
@@ -38,9 +38,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void SwerveMovement()
     {
-        float desiredXPosition = Mathf.Clamp(playerInput.deltaX, -maxXBounds, maxXBounds);
+        float desiredXPosition = Mathf.Clamp(playerInput.deltaX, minXBound, maxXBound);
 
-        targetPosition = new Vector3(Mathf.Clamp(transform.position.x + desiredXPosition, -maxXBounds, maxXBounds), transform.position.y, transform.position.z);
+        targetPosition = new Vector3(Mathf.Clamp(transform.position.x + desiredXPosition, minXBound, maxXBound), transform.position.y, transform.position.z);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed);
     }
