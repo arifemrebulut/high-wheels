@@ -11,11 +11,13 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
+        EventBroker.OnGameStart += SwitchToGameUI;
         EventBroker.OnGameOver += SwitchToGameOverScreen;
     }
 
     private void OnDisable()
     {
+        EventBroker.OnGameStart -= SwitchToGameUI;
         EventBroker.OnGameOver -= SwitchToGameOverScreen;
     }
 
@@ -47,6 +49,11 @@ public class CanvasManager : MonoBehaviour
         {
             Debug.Log("Desired menu is not exist!");
         }
+    }
+
+    private void SwitchToGameUI()
+    {
+        SwitchMenu(MenuType.GameUI);
     }
 
     private void SwitchToGameOverScreen()

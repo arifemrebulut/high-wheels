@@ -12,14 +12,18 @@ public class CarSuspensions : MonoBehaviour
     
     [Space]
     [SerializeField] private float carBodyOffset;
-    [SerializeField] float yIncreaseAmount;
+    [SerializeField] private float carBodyYIncreaseValue;
+    [SerializeField] private float yIncreaseAmount;
 
     [SerializeField] private GameObject suspensionPrefab;
     [SerializeField] private GameObject carBody;  
     [SerializeField] private Transform suspensionsParent;
     [SerializeField] private Transform wheelsParent;
 
-    private Queue<GameObject> suspensions;
+    private Vector3 carBodyDefaultPosition;
+
+    public static int currentSuspensionCount { get; private set; }
+    public static Queue<GameObject> suspensions { get; private set; }
 
     #region Subscribe and Unsubscribe to collision events
 
@@ -27,12 +31,14 @@ public class CarSuspensions : MonoBehaviour
     {
         EventBroker.OnPickUpSuspension += GainSuspension;
         EventBroker.OnHitToBlock += LoseSuspension;
+        EventBroker.OnGameOver += ResetCarBodyPosition;
     }
 
     private void OnDisable()
     {
         EventBroker.OnPickUpSuspension -= GainSuspension;
         EventBroker.OnHitToBlock -= LoseSuspension;
+        EventBroker.OnGameOver -= ResetCarBodyPosition;
     }
 
     #endregion
@@ -40,6 +46,12 @@ public class CarSuspensions : MonoBehaviour
     private void Awake()
     {
         suspensions = new Queue<GameObject>();
+        carBodyDefaultPosition = carBody.transform.position;
+    }
+
+    private void Update()
+    {
+        currentSuspensionCount = suspensions.Count;
     }
 
     private void GainSuspension()
@@ -51,12 +63,10 @@ public class CarSuspensions : MonoBehaviour
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
             suspensions.Enqueue(newSuspension);
-
-            AddComponentToFistSuspension();
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime).SetEase(Ease.OutBack);
+            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -68,54 +78,39 @@ public class CarSuspensions : MonoBehaviour
 
     private void LoseSuspension(int _loseAmount)
     {
-
-        if (suspensions.Count - _loseAmount < 0)
+        for (int i = 0; i < _loseAmount; i++)
         {
-            EventBroker.CallOnGameOver();
+            GameObject suspensionToDelete = suspensions.Peek();
+
+            suspensions.Dequeue();
+
+            suspensionToDelete.GetComponent<SuspensionRagdoll>().ActivateRagdoll();
+        }
+
+        float yDecreaseAmount = yIncreaseAmount * _loseAmount;
+
+        if (suspensions.Count > 1)
+        {
+
+            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyYIncreaseValue), loseSuspensionTime)
+                .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
         }
         else
         {
-            for (int i = 0; i < _loseAmount; i++)
-            {
-                GameObject suspensionToDelete = suspensions.Peek();
+            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset + carBodyYIncreaseValue), loseSuspensionTime)
+                .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
+        }
 
-                suspensions.Dequeue();
-
-                Destroy(suspensionToDelete);
-            }
-
-            float yDecreaseAmount = yIncreaseAmount * _loseAmount;
-
-            if (suspensions.Count > 1)
-            {
-                carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime)
-                    .SetEase(Ease.InBack).SetDelay(loseSuspensionDelay);
-            }
-            else
-            {
-                carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime)
-                    .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
-            }
-
-            foreach (var suspension in suspensions)
-            {
-
-                suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
-                    .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay)
-                    .OnComplete(AddComponentToFistSuspension);
-            }
-        }     
+        foreach (var suspension in suspensions)
+        {
+            suspension.transform.DOLocalMoveY(suspension.transform.localPosition.y - yDecreaseAmount, loseSuspensionTime)
+                .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
+        }
     }
-
-    private void AddComponentToFistSuspension()
+    
+    private void ResetCarBodyPosition()
     {
-        if (suspensions.Count > 0)
-        {
-            suspensions.Peek().AddComponent<SuspensionRayCheck>();
-        }
-        else
-        {
-            Debug.Log("Queue is empty!");
-        }
-    }   
+        carBody.AddComponent<BoxCollider>();
+        carBody.AddComponent<Rigidbody>();
+    }
 }

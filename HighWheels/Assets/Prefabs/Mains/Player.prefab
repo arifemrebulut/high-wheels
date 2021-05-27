@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 1431305892143396136}
   - component: {fileID: 1431305892143396119}
   - component: {fileID: 1431305892143396118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.87491286, y: 0.6184409, z: 2.3255687}
+  m_Size: {x: 0.5, y: 0.6184409, z: 2.3255687}
   m_Center: {x: -0.0012709498, y: -0.032369733, z: -0.006918192}
 --- !u!114 &1431305892143396139
 MonoBehaviour:
@@ -129,8 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5dfc3537d1cae48bc11ae3e5b666ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
-  maxXBounds: 2
+  forwardSpeed: 3.5
+  minXBound: -1.9
+  maxXBound: 2.2
   lerpSpeed: 0.8
 --- !u!114 &1431305892143396136
 MonoBehaviour:
@@ -157,9 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gainSuspensionTime: 0.5
-  loseSuspensionTime: 0.8
-  loseSuspensionDelay: 0.3
+  loseSuspensionTime: 1
+  loseSuspensionDelay: 0.7
   carBodyOffset: 0.25
+  carBodyYIncreaseValue: 0.08
   yIncreaseAmount: 0.8
   suspensionPrefab: {fileID: 7574685387792737170, guid: fd8075d3d0db2ea42ad2d5b3045b2e4a, type: 3}
   carBody: {fileID: 8411275334916892296}
@@ -177,11 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad6e066b76fd4b4abef6e857dc394bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardZPosition: 0
-  backwardZposition: 0
-  zMoveForwardDuration: 0
-  zMoveBackwardDuration: 0
-  yAngleDuration: 3
+  stopPosition: {fileID: 0}
+  endPosition: {fileID: 0}
+  zMoveForwardDuration: 3
+  zMoveBackwardDuration: 1
+  yAngleDuration: 2
   driftDelay: 0.5
   driftParticle: {fileID: 0}
 --- !u!1 &1431305892810270564

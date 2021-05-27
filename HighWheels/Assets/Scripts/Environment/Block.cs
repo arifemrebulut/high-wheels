@@ -14,8 +14,17 @@ public class Block : MonoBehaviour, ICollideable
 
     public void ExicuteCollisionActions()
     {
+        Debug.Log("Crash");
+
         collider.enabled = false;
 
-        EventBroker.CallOnHitToBlock(blockHeight);
+        if (CarSuspensions.currentSuspensionCount == 0 || (CarSuspensions.currentSuspensionCount - blockHeight) < 0)
+        {
+            EventBroker.CallOnGameOver();
+        }
+        else
+        {
+            EventBroker.CallOnHitToBlock(blockHeight);
+        }
     }
 }

@@ -7,9 +7,6 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private Transform endGamePosition;
     [SerializeField] float endGamePositionDuration;
 
-    [Header("Score Scene Rotation")]
-    [SerializeField] 
-
     CinemachineVirtualCamera playerFollowCamera;
 
     private void Awake()
@@ -31,8 +28,13 @@ public class PlayerCamera : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
 
+        playerFollowCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y = 0;
+
         playerFollowCamera.m_Follow = null;
 
         sequence.Append(transform.DOMove(endGamePosition.position, endGamePositionDuration));
+        sequence.Join(transform.DORotate(new Vector3(transform.rotation.x, 0f, transform.rotation.z), endGamePositionDuration));
+
+    
     }
 }

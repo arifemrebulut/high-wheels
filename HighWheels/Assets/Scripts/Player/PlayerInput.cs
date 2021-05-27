@@ -11,10 +11,21 @@ public class PlayerInput : MonoBehaviour
     public static Action<float> OnTouchMovedEvent;
     public static Action OnTouchBeganEvent;
 
+    private bool isGameStart;
+
+    CanvasManager canvasManager;
+
     private void Update()
     {
+        if (!isGameStart && Input.touchCount > 0)
+        {
+            isGameStart = true;
+            EventBroker.CallOnGameStart();
+        }
+
         if (Input.touchCount > 0)
         {
+
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 touchStartXPosition = Input.GetTouch(0).position.x;

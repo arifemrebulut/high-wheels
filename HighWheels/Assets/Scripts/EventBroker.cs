@@ -7,6 +7,7 @@ public class EventBroker
     public static Action OnPickUpDiamond;
     public static Action<int> OnHitToBlock;
 
+    public static Action OnGameStart;
     public static Action OnGameWin;
     public static Action OnGameOver;
     public static Action OnEndGamePoint;
@@ -27,6 +28,11 @@ public class EventBroker
         OnHitToBlock?.Invoke(_blockHeight);
     }
 
+    public static void CallOnGameStart()
+    {
+        OnGameStart?.Invoke();
+    }
+
     public static void CallOnGameWin()
     {
         OnGameWin?.Invoke();
@@ -44,7 +50,6 @@ public class EventBroker
 
     public static void CallOnScoreCountPoint()
     {
-        Debug.Log("OnScoreCountPoint");
         OnScoreCountPoint?.Invoke();
     }
 }

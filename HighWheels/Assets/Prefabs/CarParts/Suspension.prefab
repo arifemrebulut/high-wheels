@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 265472532118326362}
   - component: {fileID: 54118001764972344}
   - component: {fileID: 6187091316652608440}
-  - component: {fileID: 1988748812307766974}
   - component: {fileID: 4309148281548493069}
-  m_Layer: 0
+  - component: {fileID: 8428330545718421627}
+  m_Layer: 7
   m_Name: FrontRightSuspension
   m_TagString: SuspensionPickUp
   m_Icon: {fileID: 0}
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1988748812307766974
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698620707689773954}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014786219, y: 0.062554345, z: 0.014890796}
-  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!114 &4309148281548493069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd822841eda0c3f4a8fbd02e8f32d077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &8428330545718421627
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698620707689773954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007445398
+  m_Height: 0.062554345
+  m_Direction: 1
+  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!1 &3369703172368374822
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,9 +123,9 @@ GameObject:
   - component: {fileID: 6468734506695891790}
   - component: {fileID: 7179613817632934852}
   - component: {fileID: 3292523400677669765}
-  - component: {fileID: 6606822378845725739}
   - component: {fileID: 6845535547031319481}
-  m_Layer: 0
+  - component: {fileID: 1272940965443972243}
+  m_Layer: 7
   m_Name: RearLeftSuspension
   m_TagString: SuspensionPickUp
   m_Icon: {fileID: 0}
@@ -197,19 +198,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6606822378845725739
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3369703172368374822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014786219, y: 0.062554345, z: 0.014890796}
-  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!114 &6845535547031319481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +210,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd822841eda0c3f4a8fbd02e8f32d077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1272940965443972243
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369703172368374822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007445398
+  m_Height: 0.062554345
+  m_Direction: 1
+  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!1 &5213281319486319777
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,9 +235,9 @@ GameObject:
   - component: {fileID: 8405399058769104255}
   - component: {fileID: 563911802337776372}
   - component: {fileID: 4453942878021519744}
-  - component: {fileID: 775530296555513580}
   - component: {fileID: 6853295855199275183}
-  m_Layer: 0
+  - component: {fileID: 2225736962322078062}
+  m_Layer: 7
   m_Name: RearRightSuspension
   m_TagString: SuspensionPickUp
   m_Icon: {fileID: 0}
@@ -308,19 +310,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &775530296555513580
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213281319486319777}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014786219, y: 0.062554345, z: 0.014890796}
-  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!114 &6853295855199275183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +322,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd822841eda0c3f4a8fbd02e8f32d077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &2225736962322078062
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213281319486319777}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007445398
+  m_Height: 0.062554345
+  m_Direction: 1
+  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: -0.0000000037252903}
 --- !u!1 &7574685387792737170
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8367588743949976121}
+  - component: {fileID: 8955744620270645664}
   m_Layer: 0
   m_Name: Suspension
   m_TagString: Untagged
@@ -367,6 +371,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8955744620270645664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574685387792737170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469b3b262256cc142b6a307d66a93890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakForce: 150
 --- !u!1 &7994455598977711208
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,9 +395,9 @@ GameObject:
   - component: {fileID: 7330122614393972434}
   - component: {fileID: 5914924210514143607}
   - component: {fileID: 8499136315971689917}
-  - component: {fileID: 5008658568383000226}
   - component: {fileID: 2645065826523958284}
-  m_Layer: 0
+  - component: {fileID: 1710434782725569875}
+  m_Layer: 7
   m_Name: FrontLeftSuspension
   m_TagString: SuspensionPickUp
   m_Icon: {fileID: 0}
@@ -453,19 +470,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5008658568383000226
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7994455598977711208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014786219, y: 0.062554345, z: 0.014890796}
-  m_Center: {x: 2.3283064e-10, y: -0.0000000018626451, z: 0}
 --- !u!114 &2645065826523958284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,3 +482,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd822841eda0c3f4a8fbd02e8f32d077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1710434782725569875
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994455598977711208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007445398
+  m_Height: 0.062554345
+  m_Direction: 1
+  m_Center: {x: -0.0000000016298145, y: -0.0000000018626451, z: 0}

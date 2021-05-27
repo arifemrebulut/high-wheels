@@ -15,13 +15,13 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable()
     {
         EventBroker.OnPickUpDiamond += TakeDiamond;
-        EventBroker.OnGameOver += GameOverActions;
+        //EventBroker.OnGameOver += GameOverActions;
     }
 
     private void OnDisable()
     {
         EventBroker.OnPickUpDiamond -= TakeDiamond;
-        EventBroker.OnGameOver -= GameOverActions;
+        //EventBroker.OnGameOver -= GameOverActions;
     }
 
     #endregion
