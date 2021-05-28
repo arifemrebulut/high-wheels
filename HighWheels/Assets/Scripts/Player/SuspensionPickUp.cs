@@ -4,7 +4,7 @@ public class SuspensionPickUp : MonoBehaviour, ICollideable
 {
     public void ExicuteCollisionActions()
     {
-        EventBroker.CallOnPickUpSuspension();
         Destroy(gameObject);
+        EventBroker.CallOnPickUpSuspension();
     }
 }

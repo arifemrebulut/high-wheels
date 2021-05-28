@@ -87,10 +87,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &1431305892143396137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6184409, z: 2.3255687}
+  m_Size: {x: 0.7543167, y: 0.6184409, z: 2.3255684}
   m_Center: {x: -0.0012709498, y: -0.032369733, z: -0.006918192}
 --- !u!114 &1431305892143396139
 MonoBehaviour:
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gainSuspensionTime: 0.5
-  loseSuspensionTime: 1
-  loseSuspensionDelay: 0.7
-  carBodyOffset: 0.25
+  loseSuspensionTime: 0.8
+  loseSuspensionDelay: 0.8
+  carBodyOffset: 0.1
   carBodyYIncreaseValue: 0.08
   yIncreaseAmount: 0.8
   suspensionPrefab: {fileID: 7574685387792737170, guid: fd8075d3d0db2ea42ad2d5b3045b2e4a, type: 3}
@@ -181,11 +181,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopPosition: {fileID: 0}
   endPosition: {fileID: 0}
-  zMoveForwardDuration: 3
-  zMoveBackwardDuration: 1
-  yAngleDuration: 2
+  zMoveForwardDuration: 2.5
+  zMoveBackwardDuration: 0.8
+  yAngleDuration: 1.5
   driftDelay: 0.5
   driftParticle: {fileID: 0}
+  goingDownDuration: 1
+  suspensionBreakDuration: 0.8
+  carBodyDownPosition: 1.15
+  carBodyDownDuration: 1
+  carBody: {fileID: 8411275334916892296}
+  rearWheels:
+  - {fileID: 7322199227359378184}
+  - {fileID: 7322199227647474900}
+  - {fileID: 3455811991063043356}
+  - {fileID: 3455811990263241408}
+  suspensionsParent: {fileID: 1431305893667688306}
 --- !u!1 &1431305892810270564
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd8775dbdefd6a45b866f211cfaa19e, type: 3}
+--- !u!1 &3455811991063043356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8978510603677258693, guid: cbd8775dbdefd6a45b866f211cfaa19e, type: 3}
+  m_PrefabInstance: {fileID: 6012183872582438617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2647643922484512678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8633896908507744639, guid: cbd8775dbdefd6a45b866f211cfaa19e, type: 3}
@@ -806,6 +822,11 @@ PrefabInstance:
 --- !u!4 &2647643922169151610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8633896908507744639, guid: cbd8775dbdefd6a45b866f211cfaa19e, type: 3}
+  m_PrefabInstance: {fileID: 6012183872864766213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3455811990263241408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8978510603677258693, guid: cbd8775dbdefd6a45b866f211cfaa19e, type: 3}
   m_PrefabInstance: {fileID: 6012183872864766213}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7171559245051162376
@@ -939,13 +960,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d2525259193e0448f4510799ea7cdd, type: 3}
---- !u!1 &8411275334916892296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 289598633400587225, guid: 64d2525259193e0448f4510799ea7cdd, type: 3}
-  m_PrefabInstance: {fileID: 8123937607273821521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9219161966953217074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1103114455420995939, guid: 64d2525259193e0448f4510799ea7cdd, type: 3}
+  m_PrefabInstance: {fileID: 8123937607273821521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8411275334916892296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 289598633400587225, guid: 64d2525259193e0448f4510799ea7cdd, type: 3}
   m_PrefabInstance: {fileID: 8123937607273821521}
   m_PrefabAsset: {fileID: 0}

@@ -1,26 +1,38 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
-using System;
 
 public class PlayerCollisions : MonoBehaviour
 {
+    private bool canCollide = true;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Block") && CarSuspensions.currentSuspensionCount == 0)
+        if (other.gameObject.CompareTag("Block"))
         {
-            Queue<GameObject> currentSuspensions = CarSuspensions.suspensions;
-
-            EventBroker.CallOnGameOver();
-        }
-        else
-        {
-            ICollideable collideable = other.gameObject.GetComponent<ICollideable>();
-
-            if (collideable != null)
+            if (CarSuspensions.currentSuspensionCount == 0 && canCollide)
             {
-                collideable.ExicuteCollisionActions();
+                EventBroker.CallOnGameOver();
             }
-        }       
+            else if (CarSuspensions.currentSuspensionCount > 0 && canCollide)
+            {
+                ICollideable collideable = other.gameObject.GetComponent<ICollideable>();
+
+                collideable.ExicuteCollisionActions();
+                canCollide = false;
+            }
+        }
+        else if (other.gameObject.CompareTag("SuspensionPickUp"))
+        {
+            Debug.Log("PickSuspension");
+            other.gameObject.GetComponent<ICollideable>().ExicuteCollisionActions();
+        }
+        else if (other.gameObject.CompareTag("DiamondPickUp"))
+        {
+            other.gameObject.GetComponent<ICollideable>().ExicuteCollisionActions();
+        }      
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        canCollide = true;
     }
 }
