@@ -33,6 +33,9 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        canCollide = true;
+        if (other.gameObject.CompareTag("Block"))
+        {
+            canCollide = true;
+        }
     }
 }

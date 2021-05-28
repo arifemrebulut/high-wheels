@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.06934297, g: 0.3466691, b: 0.9707773, a: 1}
+  m_IndirectSpecularColor: {r: 0.069128305, g: 0.34642237, b: 0.9699149, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7017,6 +7017,10 @@ PrefabInstance:
       propertyPath: carBodyYIncreaseValue
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396137, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396138, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -7112,6 +7116,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1887200078, guid: e5a495d9af193a24c987a1daa83d3bdb, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2017881642, guid: e5a495d9af193a24c987a1daa83d3bdb, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 40.15863
