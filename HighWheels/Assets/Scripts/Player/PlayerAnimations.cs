@@ -75,8 +75,6 @@ public class PlayerAnimations : MonoBehaviour
     
     private void  BreakSuspensions()
     {
-
-
         if (frontSuspensions.Count <= 0)
         {
             return;
@@ -84,14 +82,12 @@ public class PlayerAnimations : MonoBehaviour
 
         GameObject currentSuspensionToBreak = frontSuspensions.Peek();
 
-        SuspensionRagdoll suspensionRagdoll = currentSuspensionToBreak.GetComponent<SuspensionRagdoll>();
-
         foreach (var wheel in rearWheels)
         {
             wheel.transform.parent = carBody.transform;
         }
 
-        suspensionRagdoll.BreakFrontSuspensions();       
+        Destroy(currentSuspensionToBreak); 
 
         frontSuspensions.Pop();
     }
