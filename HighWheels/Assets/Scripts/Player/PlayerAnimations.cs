@@ -60,7 +60,7 @@ public class PlayerAnimations : MonoBehaviour
 
     private IEnumerator GetSuspensions()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         frontSuspensions = new Stack<GameObject>();
 
