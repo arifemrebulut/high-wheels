@@ -4,6 +4,11 @@ public class PlayerCollisions : MonoBehaviour
 {
     private bool canCollide = true;
 
+    private void Update()
+    {
+        Debug.Log(canCollide);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Block"))
@@ -18,6 +23,7 @@ public class PlayerCollisions : MonoBehaviour
 
                 collideable.ExicuteCollisionActions();
                 canCollide = false;
+                Invoke("ChangeToCanCollide", 1f);
             }
         }
         else if (other.gameObject.CompareTag("SuspensionPickUp"))
@@ -37,5 +43,10 @@ public class PlayerCollisions : MonoBehaviour
         {
             canCollide = true;
         }
+    }
+
+    private void ChangeToCanCollide()
+    {
+        canCollide = true;
     }
 }
