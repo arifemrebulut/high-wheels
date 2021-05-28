@@ -3511,7 +3511,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: -9.883845, y: -12.480306, z: -0.96963966}
     roll: 0
-  - position: {x: -6.9293704, y: -17.521544, z: -2.5626888}
+  - position: {x: -3.4848661, y: -21.02866, z: -4.299475}
     roll: 0
 --- !u!1001 &1141187828
 PrefabInstance:
@@ -5746,7 +5746,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711527806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
