@@ -55,6 +55,13 @@ public class PlayerAnimations : MonoBehaviour
 
     private void PlayScoreCountAnimations()
     {
+        StartCoroutine(GetSuspensions());
+    }
+
+    private IEnumerator GetSuspensions()
+    {
+        yield return new WaitForSeconds(2f);
+
         frontSuspensions = new Stack<GameObject>();
 
         foreach (var suspension in CarSuspensions.suspensions)
@@ -62,7 +69,7 @@ public class PlayerAnimations : MonoBehaviour
             frontSuspensions.Push(suspension);
             suspension.GetComponent<SuspensionRagdoll>().rearSuspensions.ForEach(x => x.transform.parent = carBody.transform);
         }
-        
+
         InvokeRepeating("BreakSuspensions", 0f, 0.8f);
         Invoke("MoveCarBodyDown", 0.6f);
     }
