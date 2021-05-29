@@ -87,6 +87,8 @@ public class CarSuspensions : MonoBehaviour
 
     private void LoseSuspension(int _loseAmount)
     {
+        Debug.Log(_loseAmount);
+
         for (int i = 0; i < _loseAmount; i++)
         {
             GameObject suspensionToDelete = suspensions.Peek();
