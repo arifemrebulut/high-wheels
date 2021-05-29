@@ -6,6 +6,7 @@ public class DiamondPickUp : MonoBehaviour, ICollideable
 
     public void ExicuteCollisionActions()
     {
+        Debug.Log("PickUp diamond");
         PlayPartcleEffects();
 
         EventBroker.CallOnPickUpDiamond();

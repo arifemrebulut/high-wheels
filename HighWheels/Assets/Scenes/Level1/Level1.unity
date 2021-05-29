@@ -7149,6 +7149,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2025635605}
+    - target: {fileID: 5769251779508508724, guid: e5a495d9af193a24c987a1daa83d3bdb, type: 3}
+      propertyPath: m_Name
+      value: CountText
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a495d9af193a24c987a1daa83d3bdb, type: 3}
 --- !u!1001 &5571814185182698712
@@ -7240,9 +7244,17 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8691225921563916085, guid: b46575fc0e7e79346842f0df59d8a4f7, type: 3}
+      propertyPath: diamondText
+      value: 
+      objectReference: {fileID: 21740063}
+    - target: {fileID: 8691225921563916085, guid: b46575fc0e7e79346842f0df59d8a4f7, type: 3}
       propertyPath: diamondCount
       value: 
       objectReference: {fileID: 21740063}
+    - target: {fileID: 8691225921563916085, guid: b46575fc0e7e79346842f0df59d8a4f7, type: 3}
+      propertyPath: totalDiamondsData
+      value: 
+      objectReference: {fileID: 11400000, guid: f13ca566f64010443b2691f33ddef324, type: 2}
     - target: {fileID: 8691225921563916086, guid: b46575fc0e7e79346842f0df59d8a4f7, type: 3}
       propertyPath: m_RootOrder
       value: 3

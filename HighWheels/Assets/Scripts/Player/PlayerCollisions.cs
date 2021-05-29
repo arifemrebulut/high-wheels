@@ -59,7 +59,6 @@ public class PlayerCollisions : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("SuspensionPickUp"))
         {
-            Debug.Log("PickSuspension");
             other.gameObject.GetComponent<ICollideable>().ExicuteCollisionActions();
         }
         else if (other.gameObject.CompareTag("DiamondPickUp"))

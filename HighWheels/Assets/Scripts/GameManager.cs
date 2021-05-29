@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] TextMeshProUGUI diamondCount;
+    [SerializeField] TextMeshProUGUI diamondText;
     [SerializeField] private TotalDiamonds totalDiamondsData;
 
     #region Subscribe and unsubscribe to events
@@ -25,22 +25,32 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
+    private void Awake()
+    {
+        UpdateDiamondCount();
+    }
+
     private void TakeDiamond()
     {
         totalDiamondsData.diamondCount++;
-        diamondCount.text = totalDiamondsData.diamondCount.ToString();
+        diamondText.text = totalDiamondsData.diamondCount.ToString();
     }
 
     private void IncreaseDiamond(int increaseAmount)
     {
         totalDiamondsData.diamondCount += increaseAmount;
-        diamondCount.text = totalDiamondsData.diamondCount.ToString();
+        diamondText.text = totalDiamondsData.diamondCount.ToString();
     }
 
     private void DecreaseDiamond(int decreaseAmount)
     {
         totalDiamondsData.diamondCount -= decreaseAmount;
-        diamondCount.text = totalDiamondsData.diamondCount.ToString();
+        diamondText.text = totalDiamondsData.diamondCount.ToString();
+    }
+
+    private void UpdateDiamondCount()
+    {
+        diamondText.text = totalDiamondsData.diamondCount.ToString();
     }
 
     private void GameOverActions()
