@@ -30,11 +30,11 @@ public class PlayerCamera : MonoBehaviour
 
         playerFollowCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y = 0;
 
-        playerFollowCamera.m_Follow = null;
+       
 
         sequence.Append(transform.DOMove(endGamePosition.position, endGamePositionDuration));
+        playerFollowCamera.m_Follow = null;
         sequence.Join(transform.DORotate(new Vector3(transform.rotation.x, 0f, transform.rotation.z), endGamePositionDuration));
-
     
     }
 }

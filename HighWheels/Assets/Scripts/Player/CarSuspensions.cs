@@ -25,6 +25,8 @@ public class CarSuspensions : MonoBehaviour
     public static int currentSuspensionCount { get; private set; }
     public static Queue<GameObject> suspensions { get; private set; }
 
+    DG.Tweening.Tween gainTween;
+
     #region Subscribe and Unsubscribe to collision events
 
     private void OnEnable()
@@ -58,7 +60,7 @@ public class CarSuspensions : MonoBehaviour
     {
         if (suspensions.Count == 0)
         {
-            carBody.transform.DOMoveY((carBody.transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime).SetEase(Ease.OutBack);
+            gainTween = carBody.transform.DOMoveY((carBody.transform.position.y + yIncreaseAmount + carBodyOffset), gainSuspensionTime).SetEase(Ease.OutBack);
 
             GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
@@ -66,13 +68,28 @@ public class CarSuspensions : MonoBehaviour
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
+            if (gainTween.IsPlaying())
+            {
+                gainTween.Complete();
 
-            GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
+                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
 
-            newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
+                GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
 
-            suspensions.Enqueue(newSuspension);
+                newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
+
+                suspensions.Enqueue(newSuspension);
+            }
+            else
+            {
+                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
+
+                GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
+
+                newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
+
+                suspensions.Enqueue(newSuspension);
+            }
         }
     }
 
