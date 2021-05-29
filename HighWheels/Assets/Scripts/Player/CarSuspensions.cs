@@ -12,7 +12,6 @@ public class CarSuspensions : MonoBehaviour
     
     [Space]
     [SerializeField] private float carBodyOffset;
-    [SerializeField] private float carBodyYIncreaseValue;
     [SerializeField] private float yIncreaseAmount;
 
     [SerializeField] private GameObject suspensionPrefab;
@@ -71,25 +70,18 @@ public class CarSuspensions : MonoBehaviour
             if (gainTween.IsPlaying())
             {
                 gainTween.Complete();
-
-                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
-
-                GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
-
-                newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
-
-                suspensions.Enqueue(newSuspension);
+                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime).SetEase(Ease.OutBack);
             }
             else
             {
-                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount + carBodyYIncreaseValue, gainSuspensionTime).SetEase(Ease.OutBack);
-
-                GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
-
-                newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
-
-                suspensions.Enqueue(newSuspension);
+                gainTween = carBody.transform.DOMoveY(carBody.transform.position.y + yIncreaseAmount, gainSuspensionTime).SetEase(Ease.OutBack);
             }
+
+            GameObject newSuspension = Instantiate(suspensionPrefab, suspensionsParent);
+
+            newSuspension.transform.localPosition += new Vector3(0f, suspensions.Last().transform.localPosition.y + yIncreaseAmount, 0f);
+
+            suspensions.Enqueue(newSuspension);
         }
     }
 
@@ -109,12 +101,12 @@ public class CarSuspensions : MonoBehaviour
         if (suspensions.Count > 1)
         {
 
-            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyYIncreaseValue), loseSuspensionTime)
+            carBody.transform.DOMoveY(carBody.transform.position.y - yDecreaseAmount, loseSuspensionTime)
                 .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
         }
         else
         {
-            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset + carBodyYIncreaseValue), loseSuspensionTime)
+            carBody.transform.DOMoveY(carBody.transform.position.y - (yDecreaseAmount + carBodyOffset), loseSuspensionTime)
                 .SetEase(Ease.OutBack).SetDelay(loseSuspensionDelay);
         }
 

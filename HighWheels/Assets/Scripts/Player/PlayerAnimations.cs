@@ -16,14 +16,12 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] GameObject driftParticle;
 
     [Header("Score Count Animations")]
-    [SerializeField] float goingDownDuration;
-    [SerializeField] float suspensionBreakDuration;
     [SerializeField] float carBodyDownPosition;
     [SerializeField] float carBodyDownDuration;
     [SerializeField] GameObject carBody;
     [SerializeField] List<GameObject> rearWheels;
     [SerializeField] GameObject suspensionsParent;
-    [SerializeField] float suspensionDestroyDuration = 3f;
+    [SerializeField] float suspensionDestroyDuration = 1f;
 
 
     private Stack<GameObject> frontSuspensions;
@@ -71,7 +69,7 @@ public class PlayerAnimations : MonoBehaviour
             suspension.GetComponent<SuspensionRagdoll>().rearSuspensions.ForEach(x => x.transform.parent = carBody.transform);
         }
 
-        InvokeRepeating("BreakSuspensions", 0f, suspensionDestroyDuration);
+        InvokeRepeating("BreakSuspensions", 0.5f, suspensionDestroyDuration);
         Invoke("MoveCarBodyDown", 0.6f);
     }
 

@@ -3190,7 +3190,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066019666}
-  m_LocalRotation: {x: 5.8467003e-12, y: 0.9804372, z: -0.1968324, w: -2.8390547e-12}
+  m_LocalRotation: {x: 1.7096815e-11, y: 0.99951476, z: -0.031149747, w: -7.273731e-11}
   m_LocalPosition: {x: 0, y: 7.25, z: 80.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5739,8 +5739,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.21066846, y: -0.14578797, z: 0.031790543, w: 0.96610254}
-  m_LocalPosition: {x: 2.9, y: 6.8799996, z: 60.010002}
+  m_LocalRotation: {x: 0.21066843, y: -0.14578795, z: 0.03179054, w: 0.96610254}
+  m_LocalPosition: {x: 2.9, y: 6.8799996, z: -17.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1632338165}
@@ -6709,8 +6709,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941957202}
-  m_LocalRotation: {x: 0.21066846, y: -0.14578797, z: 0.031790543, w: 0.96610254}
-  m_LocalPosition: {x: 2.9, y: 6.8799996, z: 60.010002}
+  m_LocalRotation: {x: 0.21066843, y: -0.14578795, z: 0.03179054, w: 0.96610254}
+  m_LocalPosition: {x: 2.9, y: 6.8799996, z: -17.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1042527770}
@@ -7255,7 +7255,7 @@ PrefabInstance:
       objectReference: {fileID: 351978507}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: yAngleDuration
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: goingDownDuration
@@ -7271,11 +7271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: carBodyDownPosition
-      value: 0.88
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: zMoveForwardDuration
-      value: 2.5
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: rearWheels.Array.size
@@ -7283,7 +7283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: zMoveBackwardDuration
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: suspensionBreakDuration
@@ -7306,8 +7306,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 475588928}
     - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: suspensionDestroyDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396118, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: suspensiondestroyduration
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: carBodyOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: yIncreaseAmount
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: gainSuspensionTime
@@ -7318,12 +7330,20 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: gainSuspensionDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
+      propertyPath: gainSuspnesionDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: loseSuspensionDelay
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396119, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: carBodyYIncreaseValue
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396137, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: m_IsTrigger
@@ -7351,7 +7371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396141, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 69.4
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 1431305892143396141, guid: 7d74f69dd06f05a43a2ee7bed60c6c87, type: 3}
       propertyPath: m_LocalRotation.w
