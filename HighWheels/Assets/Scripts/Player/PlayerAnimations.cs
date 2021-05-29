@@ -23,6 +23,7 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] GameObject carBody;
     [SerializeField] List<GameObject> rearWheels;
     [SerializeField] GameObject suspensionsParent;
+    [SerializeField] float suspensiondestroyduration = 3f;
 
 
     private Stack<GameObject> frontSuspensions;
@@ -70,7 +71,7 @@ public class PlayerAnimations : MonoBehaviour
             suspension.GetComponent<SuspensionRagdoll>().rearSuspensions.ForEach(x => x.transform.parent = carBody.transform);
         }
 
-        InvokeRepeating("BreakSuspensions", 0f, 0.8f);
+        InvokeRepeating("BreakSuspensions", 0f, suspensiondestroyduration);
         Invoke("MoveCarBodyDown", 0.6f);
     }
 
